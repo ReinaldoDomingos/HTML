@@ -1,0 +1,51 @@
+<style type="text/css">
+	canvas{
+		border: 1px solid black;
+	}
+</style>
+<canvas   width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<canvas id="canvas"  width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<canvas id="canvas2"  width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<canvas id="canvas3"  width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<canvas id="canvas4"  width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<canvas id="canvas5"  width="200" height="100">Erro: seu navegador não suporta a tag html5</canvas>
+<script type="text/javascript">
+	function getCanvas(id) {
+		var c = document.getElementById(id);		
+		return 	c.getContext("2d");			
+	}
+
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+
+	canvas = document.getElementById("canvas2");
+	ctx = canvas.getContext("2d");	
+	ctx.beginPath();
+	ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+	ctx.stroke();
+
+	canvas = document.getElementById("canvas3");
+	ctx = canvas.getContext("2d");	
+	var ctx = canvas.getContext("2d");
+	ctx.font = "30px Arial";
+	ctx.fillText("Hello World", 10, 40);
+	ctx.strokeText("Hello World", 10, 80);
+
+	canvas = document.getElementById("canvas4");
+	ctx = canvas.getContext("2d");	
+	var grd = ctx.createLinearGradient(0, 0, 200, 0);
+	grd.addColorStop(0, "green");
+	grd.addColorStop(1, "orange");
+	ctx.fillStyle = grd;
+	ctx.fillRect(0, 0, 200, 100);
+
+	ctx = getCanvas("canvas5");	
+	var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+	grd.addColorStop(0, "orange");
+	grd.addColorStop(1, "white");
+	ctx.fillStyle = grd;
+	ctx.fillRect(0, 0, 2000, 100);
+</script>

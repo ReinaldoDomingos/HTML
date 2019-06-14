@@ -61,7 +61,14 @@ step
 
 Gráficos HTML5
 
-<canvas> Desenhe gráficos, on the fly, via scripts (geralmente JavaScript)
+<canvas> Desenhe gráficos, via scripts (geralmente JavaScript)
 <svg> Desenhar gráficos vetoriais escalonáveis
 
+Novos elementos de mídia
+
+<audio> Define o conteúdo sonoro
+<embed> Define um contêiner para um aplicativo externo (não HTML)
+<source> Define vários recursos de mídia para elementos de mídia (<video> e <audio>)
+<track> Define faixas de texto para elementos de mídia (<video> e <audio>)
+<video> Define vídeo ou filme
 

@@ -1,0 +1,9 @@
+<p id="res" ></p>
+
+//php exemplo: echo "data: Hora atual $hora";
+<script type="text/javascript">
+	var source = new EventSource("index.php");
+	source.onmessage = function(event) {
+		document.getElementById("res").innerHTML += event.data + "<br>";
+	};
+</script>

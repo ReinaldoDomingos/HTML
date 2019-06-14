@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<p id="res">LocalStorage: </p>
+	<p>LocalStorage: 0 cliques</p>
+	<button id="btn" onclick="clique()" >Clique aqui </button>
+
+	<script type="text/javascript">
+		console.log(localStorage.getItem('cliques'))
+		function clique() {		
+			if (typeof(Storage) !== "undefined") {
+				if (localStorage.cliques) {
+					localStorage.cliques = Number(localStorage.cliques)+1;				
+				} else {
+					localStorage.cliques = 1;
+				}
+			}else{
+				console.log("Erro");
+			}
+			document.getElementById("res").innnerText = "LocalStorage: " + localStorage.getItem('cliques') + " cliques";
+		}
+	</script>
+</body>
+</html>
