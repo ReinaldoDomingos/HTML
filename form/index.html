@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style> 
+    .flex-container {
+      display: -webkit-flex;
+      display: flex;  
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .flex-container > * {
+      padding: 10px;
+      flex: 1 100%;
+    }
+
+    .main {
+      text-align: left;
+      background: cornflowerblue;
+    }
+
+    .header {background: coral;}
+    .footer {background: lightgreen;}
+    .aside1 {background: moccasin;}
+    .aside2 {background: violet;}
+
+    @media all and (min-width: 768px) {
+      .aside { flex: 1 auto; }
+      .main    { flex: 3 0px; }
+      .aside1 { order: 1; } 
+      .main    { order: 2; }
+      .aside2 { order: 3; }
+      .footer  { order: 4; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flex-container">
+    <article class="main">
+      <h2>Formulario</h2>
+      <form action="/index.php" oninput="x.value=parseInt(a.value)+parseInt(b.value)"
+      autocomplete="on">
+      <fieldset>
+        <label>Nome:</label>
+        <input type="text" name="nome" value="Reinaldo" autofocus>
+        <br><br><label>Sobrenome:</label>
+        <input type="text" name="sobrenome" value="Junior">
+        <br><br><label>Sexo:</label>
+        <select name="Sexo">
+          <option value="f">Feminino</option>
+          <option value="m" selected>Masculino</option>          
+        </select><br><br>
+        <label>Telefone</label>
+        <input type="tel" name="phone" pattern="[0-9]{5}-[0-9]{4}" required>
+        <br><br> <label>Idade:</label>
+        <input type="number" name="quantity"
+        min="0" max="100" step="10" value="30">
+        <br><br><label>Cidade:</label>
+        <input type="text" name="cidade" list="browsers">        
+        <datalist id="browsers">
+          <option value="Coxim">
+            <option value="Rio Verde">
+              <option value="Campo Grande">
+                <option value="Sonora">
+                  <option value="Pedro Gomes">
+                  </datalist>
+                  <br><br><label>Mês Atual</label>
+                  <input type="date" name="data">
+                  <br><br><label>Data nascimento:</label>
+                  <input type="month" name="bdaymonth"><br><br>
+                  <label>Selecione sua cor favorita:</label>                  
+                  <input type="color" name="favcolor" value="#ff0000">
+                  <br><br><label>Soma:</label>
+                  <input type="range" id="a" name="a" value="50">
+                  100 +
+                  <input type="number" id="b" name="b" value="50">
+                  =
+                  <output name="x" for="a b"></output>
+                  <br><br>
+                  <input type="submit" value="Enviar">
+                </fieldset>
+                <textarea name="message" rows="10" cols="30"></textarea>
+              </form> 
+            </article>
+          </div>
+
+        </body>
+        </html>

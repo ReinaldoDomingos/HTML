@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS</title>
+	<meta charset="UTF-8">	
+	<style type="text/css">
+		p.paragrafo{
+			color: white;
+			border: 1px solid powderblue;
+			padding: 30px;
+		}		
+		nav{
+			/*height: 10%;			*/
+		}
+		li{
+			float: left;
+			padding: 2px;			
+		}
+		nav,ul,li{
+			display: inline;
+		}
+		header{			
+			background-color: forestgreen;
+			color: white;			
+		}
+		.row{
+			margin: 0;
+		}
+		.row.col{
+			/*width:25%;*/
+		}
+		.select{
+			/*background-color: ;	*/
+		}
+		li{
+			/*border: 1px solid black;*/
+			/*z-index: 100;*/
+		}
+	</style>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body style="background-color: rgb(00,250,55);">
+	<header class="row">
+		<nav>
+			<ul>
+				<li class="col select">TalentW</li>
+				<li class="col">Inicio</li>
+				<li class="col">Videos</li>
+			</ul>
+		</nav>
+	</header>	
+	<main></main>
+	<footer></footer>
+	<script type="text/javascript">
+		document.getElementsByClassName("row")[0].style.width = innerWidth;
+	</script>
+</body>
+</html> 

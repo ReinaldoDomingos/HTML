@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <base href="/" target="_blank">
+<head>
+  <style> 
+    .flex-container {
+      display: -webkit-flex;
+      display: flex;  
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .flex-container > * {
+      padding: 10px;
+      flex: 1 100%;
+    }
+
+    .main {
+      text-align: left;
+      background: cornflowerblue;
+    }
+
+    .header {background: coral;}
+    .footer {background: lightgreen;}
+    .aside {background: moccasin;}
+
+    @media all and (min-width: 768px) {
+      .aside { flex: 1 auto; }
+      .main    { flex: 3 0px; }
+      .aside { order: 1; } 
+      .main    { order: 2; }
+      .footer  { order: 4; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flex-container">
+    <header class="header">Header</header>
+    <aside class="aside">Aside</aside>
+    <article class="main">
+      <h1>Article</h1>
+      <p>Conteudo Conteudo Conteudo Conteudo Conteudo
+        Conteudo Conteudo Conteudo Conteudo Conteudo 
+      Conteudo Conteudo Conteudo Conteudo Conteudo</p>
+      <p>Conteudo Conteudo Conteudo Conteudo Conteudo 
+        Conteudo Conteudo Conteudo Conteudo Conteudo
+        Conteudo Conteudo Conteudo Conteudo Conteudo
+      Conteudo Conteudo Conteudo Conteudo Conteudo</p>
+    </article>
+    <footer class="footer">Footer</footer>
+  </div>
+
+</body>
+</html>
