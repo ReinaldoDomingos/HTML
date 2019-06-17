@@ -1,3 +1,3 @@
-git add .
-git commit -a -m "Add Modulos Canvas, SVG, Video, Audio, Geolocalização, Arrastar/Soltar, Armazenamento, Worker, eventos"
+git add . 
+git commit -a -m "Mover tudo para modulo apreendizagem e iniciando o desenvolvimento de um exemplo pratico"
 git push -u origin master
