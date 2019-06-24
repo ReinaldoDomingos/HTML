@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<scr>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+  var nome = prompt("Qual seu nome?")
+  document.write(`seu nome tem ${nome.length}<br>`)
+  document.write(`${nome.toUpperCase()}<br>`)
+  document.write(`${nome.toLocaleLowerCase()}<br>`)
+  var salario = Number(prompt("Qual seu salario?"))
+  salario.toFixed(2);
+ salario = salario.toLocaleString('pt-BR',{style:'currency','currency':'BRL'})
+  document.write(`${salario}<br>`)
+</script>
+</body>
+
+</html>
