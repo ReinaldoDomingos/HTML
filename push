@@ -1,3 +1,3 @@
 git add . 
-git commit -a -m "Inciando curso em video javascript"
+git commit -a -m "Curso em video javascript terminado"
 git push -u origin master  

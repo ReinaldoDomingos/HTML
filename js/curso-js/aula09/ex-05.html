@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<scr>, initial-scale=eEE1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: blue;
+      color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <div>
+    <p>Conteudo 1</p>
+    <p id="cont1">Conteudo 2</p>
+  </div>
+  <script>
+    var p1 = document.getElementsByTagName('p')[0];
+    window.document.write("p1 = " + p1.innerHTML + "<br>")
+    var p2 = document.getElementById('cont1');
+    window.document.write("p2 por id = " + p2.innerHTML + "<br>")
+    var h1 = document.querySelector('h1');
+    h1.style.color = 'black'; 
+  </script>
+</body>
+
+</html>
