@@ -17,14 +17,15 @@
 				<input type="text" id="q" value="" ng-model="query">			
 				<input type="button" id="salvar" ng-click="consultar(1)" value="Consultar">
 				<h3>Registro</h3>
-				<input type="hidden" id="id" value="" ng-model="curso.id">
+				<input type="text" id="id" value="" ng-model="curso.id">
 				<label for="curso">Nome do Curso</label>
 				<input type="text" id="curso" name="curso" ng-model="curso.nome"><br><br>	
 				<label for="ciencia">Ciência
 					<input type="text" id="ciencia" ng-model="curso.ciencia" name="ciencia">	
 				</label>
 				<br><br><input type="button" id="salvar" ng-click="salvar()" value="Salvar">	
-				<input type="button" id="salvar" ng-click="apagar()" value="Apagar"><br><br> 	
+				<input type="button" id="salvar" ng-click="apagar()" value="Apagar">
+				<input type="button" ng-click="reset()" value="Limpar"><br><br> 	
 				<select ng-model="selecionado" ng-click="selecionar()" size="10">
 					<option ng-repeat="curson in cursos" value="{{curson}}">	
 						{{curson.nome}}
@@ -78,6 +79,7 @@
 					else{
 						console.log("Registros")						
 						$scope.cursos = response.data;
+						$scope.curso = [];
 					}
 					if(!$scope.query)$scope.quantidadeCursos = $scope.cursos.length
 				}, function errorCallback(response) {
@@ -91,6 +93,9 @@
 				$scope.curso = JSON.parse($scope.selecionado)
 			}
 
+			$scope.reset = function(){
+				$scope.curso = [];				
+			}
 			$scope.salvar = function(){
 				console.log($scope.curso.id)
 				if($scope.curso.id)
@@ -98,6 +103,8 @@
 				else				
 					$scope.inserir()
 				$scope.curso.id = '';
+				$scope.curso = [];
+
 			}				
 
 /*			$scope.verificar = function(callback){
@@ -108,6 +115,7 @@
 			}*/
 			$scope.atualizar = function(){
 				console.log("atualizar")
+				console.log($scope.curso.id)
 				$http.put('/cursos/'+$scope.curso.id,
 					{'nome':$scope.curso.nome,'ciencia':$scope.curso.ciencia})
 				.then(function successCallback(response) {
@@ -137,7 +145,7 @@ $scope.apagar = function(){
 	$scope.selecionar()
 	$http.delete('/cursos/'+ $scope.curso.id ,
 		{}).then(function successCallback(response) {
-			$scope.consultar();												
+			$scope.consultar();															
 		}, function errorCallback(response) {
 			console.log("Erro" + response)
 			console.log(response)

@@ -3,27 +3,22 @@
     {
       "nome": "Enfermagem",
       "ciencia": "Humanas",
-      "id": 2
-    },
-    {
-      "nome": "História",
-      "ciencia": "Humanas",
-      "id": 3
+      "id": 1
     },
     {
       "nome": "Letras",
       "ciencia": "Humanas",
-      "id": 4
+      "id": 2
     },
     {
-      "nome": "Sistema de Informação",
+      "nome": "Sistemas de Informações",
       "ciencia": "Exatas",
-      "id": 6
+      "id": 3
     },
     {
-      "nome": "Direito",
+      "nome": "História",
       "ciencia": "Humanas",
-      "id": 7
+      "id": 4
     }
   ]
 }
