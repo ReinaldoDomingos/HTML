@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Teste Json Server</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="triagem" ng-controller="CadastroController">
+	<header></header>
+	<section>Exercicio
+		<div>
+
+			<h1>Cadastro de Cursos</h1>
+			<h5>Cadastros: {{quantidadeCursos}}</h5>
+			<form>
+				<h3>Consulta</h3>
+				<input type="text" id="q" value="" ng-model="query">			
+				<input type="button" id="salvar" ng-click="consultar(1)" value="Consultar">
+				<h3>Registro</h3>
+				<input type="hidden" id="id" value="" ng-model="curso.id">
+				<label for="curso">Nome do Curso</label>
+				<input type="text" id="curso" name="curso" ng-model="curso.nome"><br><br>	
+				<label for="ciencia">Ciência
+					<input type="text" id="ciencia" ng-model="curso.ciencia" name="ciencia">	
+				</label>
+				<br><br><input type="button" id="salvar" ng-click="salvar()" value="Salvar">	
+				<input type="button" id="salvar" ng-click="apagar()" value="Apagar"><br><br> 	
+				<select ng-model="selecionado" ng-click="selecionar()" size="10">
+					<option ng-repeat="curson in cursos" value="{{curson}}">	
+						{{curson.nome}}
+					</option>
+				</select>
+			</form>
+		</div>
+	</section>
+	<footer>&copy; TalentW</footer>
+	<script src="script.js"></script>
+	<script src="angular.min.js"></script>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		angular.module('triagem').controller('CadastroController', function ($scope,$http) {
+			var btnSalvar = document.getElementById('salvar')
+			btnSalvar.addEventListener('click',salvar);
+			$scope.quantidadeCursos =0;	
+			$scope.curso = {
+				'id':'',
+				'nome':'',
+				'ciencia':''
+			};
+
+			$scope.validar = function(){
+			}
+
+			$scope.pesquisar = function(q,callback){
+				$http({
+					method: 'GET',
+					url: `/cursos/?q=${q}`
+				}).then(function successCallback(response) {
+					console.log("Busca")												
+					console.log(response.data)												
+					$scope.curso = response.data[0];										
+					callback()
+				}, function errorCallback(response) {
+					console.log(`Erro: ${$scope.quantidadeCursos} registros!`)
+				});
+			}
+
+			$scope.consultar = function(){
+				if(!$scope.query) $scope.query ='';
+				$http({
+					method: 'GET',
+					url: `/cursos/${$scope.query}`
+				}).then(function successCallback(response) {
+					if($scope.query){
+						console.log("Registro")												
+						$scope.curso = response.data;										
+					}
+					else{
+						console.log("Registros")						
+						$scope.cursos = response.data;
+					}
+					if(!$scope.query)$scope.quantidadeCursos = $scope.cursos.length
+				}, function errorCallback(response) {
+					console.log(`Erro: ${$scope.quantidadeCursos} registros!`)
+				});
+			}
+
+			$scope.consultar();
+
+			$scope.selecionar = function(){
+				$scope.curso = JSON.parse($scope.selecionado)
+			}
+
+			$scope.salvar = function(){
+				console.log($scope.curso.id)
+				if($scope.curso.id)
+					$scope.atualizar()					
+				else				
+					$scope.inserir()
+				$scope.curso.id = '';
+			}				
+
+/*			$scope.verificar = function(callback){
+				if($scope.curso.id) $scope.pesquisar($scope.curso.id,callback);
+				else if($scope.curso.nome)	 $scope.pesquisar($scope.curso.nome,callback);
+				else if($scope.curso.ciencia) $scope.pesquisar($scope.curso.ciencia,callback);
+				console.log($scope.curso.id)
+			}*/
+			$scope.atualizar = function(){
+				console.log("atualizar")
+				$http.put('/cursos/'+$scope.curso.id,
+					{'nome':$scope.curso.nome,'ciencia':$scope.curso.ciencia})
+				.then(function successCallback(response) {
+					console.log(response.data);
+					$scope.consultar();				
+				}, function errorCallback(response) {
+					console.log("Erro")
+				});
+			}
+
+			$scope.inserir = function(id){
+				console.log("inserir")
+				if(!$scope.curso.id)
+					id = $scope.quantidadeCursos+1;
+				$http.post('/cursos/',
+					{'id':$scope.curso.id,'nome':$scope.curso.nome,'ciencia':$scope.curso.ciencia})
+				.then(function successCallback(response) {
+					console.log(response.data)
+					$scope.consultar();												
+				}, function errorCallback(response) {
+					console.log("Erro" + response)
+					console.log(response)
+				});
+//	$scope.reset();
+}
+$scope.apagar = function(){	
+	$scope.selecionar()
+	$http.delete('/cursos/'+ $scope.curso.id ,
+		{}).then(function successCallback(response) {
+			$scope.consultar();												
+		}, function errorCallback(response) {
+			console.log("Erro" + response)
+			console.log(response)
+		});
+	}
+
+});
+</script>
+</body>
+</html>
