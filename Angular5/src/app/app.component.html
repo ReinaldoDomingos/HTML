@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header></header>
+<section>
+  <div>
+
+    <h1>Cadastro de Cursos</h1>
+    <h5>Cadastros: {{quantidadeCursos}}</h5>
+    <form>
+      <h3>Consulta</h3>
+      <input type="text" id="q"  [(value)]="query">      
+      <input type="button" id="salvar" (click)="consultar(1)" value="Consultar">
+      <h3>Registro</h3>
+      <input type="text" id="id" [(value)]="curso.id">
+      <label for="curso">Nome do Curso</label>
+      <input type="text" id="curso" name="curso" [(value)]="curso.nome"><br><br> 
+      <label for="ciencia">Ciência
+        <input type="text" id="ciencia" [(value)]="curso.ciencia" name="ciencia">  
+      </label>
+      <br><br><input type="button" id="salvar" ng-click="salvar()" value="Salvar">  
+      <input type="button" id="salvar" ng-click="apagar()" value="Apagar">
+      <input type="button" ng-click="reset()" value="Limpar"><br><br>   
+      <select ng-model="selecionado" ng-click="selecionar()" size="10">
+        <option ng-repeat="curson in cursos" value="{{curson}}">  
+          {{curson.nome}}
+        </option>
+      </select>
+    </form>
+  </div>
+</section> 
