@@ -1,0 +1,20 @@
+{
+  "name": "triagem",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "ReinaldoDomingos <reijunior100@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ReinaldoDomingos/HTML",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}

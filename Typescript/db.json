@@ -1,0 +1,24 @@
+{
+  "cursos": [
+    {
+      "nome": "Enfermagem",
+      "ciencia": "Humanas",
+      "id": 1
+    },
+    {
+      "nome": "Letras",
+      "ciencia": "Humanas",
+      "id": 2
+    },
+    {
+      "nome": "Sistemas de Informações",
+      "ciencia": "Exatas",
+      "id": 3
+    },
+    {
+      "nome": "História",
+      "ciencia": "Humanas",
+      "id": 4
+    }
+  ]
+}

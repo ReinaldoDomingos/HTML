@@ -1,0 +1,14 @@
+{
+  "name": "triagem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "ng test",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
