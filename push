@@ -1,4 +1,3 @@
 git add . 
 git commit -a -m "Apreendizagem Angular"
-
-
+git push -u origin master  
