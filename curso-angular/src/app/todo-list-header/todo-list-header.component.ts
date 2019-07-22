@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../todo';
+import { Consulta} from '../consulta';
 
 @Component({
 	selector: 'app-todo-list-header',
@@ -8,15 +8,16 @@ import { Todo } from '../todo';
 })
 
 export class TodoListHeaderComponent {
-	newTodo: Todo = new Todo();
+	newConsulta: Consulta = new Consulta();
 
 	@Output()
-	add: EventEmitter<Todo> = new EventEmitter();
+	add: EventEmitter<Consulta> = new EventEmitter();
 
 	constructor() { }
 
-	addTodo() {
-		this.add.emit(this.newTodo);
-		this.newTodo = new Todo();
+	addConsulta() {
+		this.add.emit(this.newConsulta);
+		this.newConsulta = new Consulta();
 	}
 }
+

@@ -1,10 +1,10 @@
-<section class="main" *ngIf="todos.length > 0">
+<section class="main" *ngIf="consultas.length > 0">
 	<ul class="todo-list">
-		<li *ngFor="let todo of todos" [class.completed]="todo.complete">
+		<li *ngFor="let consulta of consultas" [class.completed]="consulta.complete">
 			<app-todo-list-item
-			[todo]="todo"
-			(toggleComplete)="onToggleTodoComplete($event)"
-			(remove)="onRemoveTodo($event)"></app-todo-list-item>
+			[consulta]="consulta"
+			(toggleComplete)="onToggleConsultaComplete($event)"
+			(remove)="onRemoveConsulta($event)"></app-todo-list-item>
 		</li>
 	</ul>
 </section>

@@ -15,5 +15,16 @@
       "complete": true,
       "id": 3
     }
+  ],
+  "consultas": [
+    {
+      "id": 1,
+      "data": "",      
+      "cidade": "Cidade",
+      "unidade": "Unidade",
+      "idade": "",
+      "classificacao": "",
+      "cor": ""
+    }
   ]
 }

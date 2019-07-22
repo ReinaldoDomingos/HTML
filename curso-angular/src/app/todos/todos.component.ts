@@ -1,61 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { TodoDataService } from '../todo-data.service';
-import { Todo } from '../todo';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ConsultaDataService} from '../consulta-data.service';
+import {Consulta} from '../consulta';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-	selector: 'app-todos',
-	templateUrl: './todos.component.html',
-	styleUrls: ['./todos.component.css'],
-	providers: [TodoDataService]
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.css'],
+  providers: [ConsultaDataService]
 })
 
 export class TodosComponent implements OnInit {
-	todos: Todo[] = [];
+  consultas: Consulta[] = [];
 
-	constructor(
-		private todoDataService: TodoDataService, 
-		private route: ActivatedRoute
-		) {
-	}
+  constructor(
+    private consultaDataService: ConsultaDataService,
+    private route: ActivatedRoute
+    ) {
+  }
 
-	public ngOnInit() {
-		this.route.data
-		.map((data) => data['todos'])
-		.subscribe(
-			(todos) => {
-				this.todos = todos;
-			}
-			);
-	}
+  public ngOnInit() {
+    this.route.data
+    .map((data) => data['consultas'])
+    .subscribe(
+      (consultas) => {
+        this.consultas = consultas;
+      }
+      );
+  }
 
-	onAddTodo(todo) {
-		this.todoDataService
-		.addTodo(todo)
-		.subscribe(
-			(newTodo) => {
-				this.todos = this.todos.concat(newTodo);
-			}
-			);
-	}
+  onAddConsulta(consulta) {
+    this.consultaDataService
+    .addConsulta(consulta)
+    .subscribe(
+      (newConsulta) => {
+        this.consultas = this.consultas.concat(newConsulta);
+      }
+      );
+  }
 
-	onToggleTodoComplete(todo) {
-		this.todoDataService
-		.toggleTodoComplete(todo)
-		.subscribe(
-			(updatedTodo) => {
-				todo = updatedTodo;
-			}
-			);
-	}
+  onToggleConsultaComplete(consulta) {
+    this.consultaDataService
+    .toggleConsultaComplete(consulta)
+    .subscribe(
+      (updatedConsulta) => {
+        consulta = updatedConsulta;
+      }
+      );
+  }
 
-	onRemoveTodo(todo) {
-		this.todoDataService
-		.deleteTodoById(todo.id)
-		.subscribe(
-			(_) => {
-				this.todos = this.todos.filter((t) => t.id !== todo.id);
-			}
-			);
-	}
+  onRemoveConsulta(consulta) {
+    console.log(consulta.id)    
+    this.consultaDataService
+    .deleteConsultaById(consulta.id)
+    .subscribe(
+      ( ) => {
+        this.consultas = this.consultas.filter((t) => t.id !== consulta.id);
+      }
+      );
+  }
 }

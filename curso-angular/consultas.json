@@ -1,0 +1,14 @@
+{      "consultas":[
+	{ 
+		"id":1,
+		"sexo": "Sexo",
+		"cidade": "Cidade",
+		"unidade": "Unidade", 
+		"nome": "",
+		"queixa": "",
+		"idade": "",
+		"classificacao":"",
+		"cor":""
+	}
+]
+}

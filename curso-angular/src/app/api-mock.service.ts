@@ -1,39 +1,39 @@
-import { Injectable } from '@angular/core';
-import { Todo } from './todo';
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Consulta} from './consulta';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ApiMockService {
 
-	constructor() {
-	}
+  constructor() {
+  }
 
-	public getAllTodos(): Observable<Todo[]> {
-		return Observable.of([
-			new Todo({id: 1, title: 'Read article', complete: false})
-			]);
-	}
+  public getAllConsultas(): Observable<Consulta[]> {
+    return Observable.of([
+      new Consulta({id: 1, title: 'Read article', complete: false})
+    ]);
+  }
 
-	public createTodo(todo: Todo): Observable<Todo> {
-		return Observable.of(
-			new Todo({id: 1, title: 'Read article', complete: false})
-			);
-	}
+  public createConsulta(consulta: Consulta): Observable<Consulta> {
+    return Observable.of(
+      new Consulta({id: 1, cor: 'azul', complete: false})
+    );
+  }
 
-	public getTodoById(todoId: number): Observable<Todo> {
-		return Observable.of(
-			new Todo({id: 1, title: 'Read article', complete: false})
-			);
-	}
+  public getConsultaById(consultaId: number): Observable<Consulta> {
+    return Observable.of(
+      new Consulta({id: 1, cor: 'azul', complete: false})
+    );
+  }
 
-	public updateTodo(todo: Todo): Observable<Todo> {
-		return Observable.of(
-			new Todo({id: 1, title: 'Read article', complete: false})
-			);
-	}
+  public updateConsulta(consulta: Consulta): Observable<Consulta> {
+    return Observable.of(
+      new Consulta({id: 1, cor: 'azul', complete: false})
+    );
+  }
 
-	public deleteTodoById(todoId: number): Observable<null> {
-		return null;
-	}
+  public deleteConsultaById(consultaId: number): Observable<null> {
+    return null;
+  }
 }

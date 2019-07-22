@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { Todo } from './todo';
-import { TodoDataService } from './todo-data.service';
+import { Consulta } from './consulta';
+import { ConsultaDataService } from './consulta-data.service';
 
 @Injectable()
-export class TodosResolver implements Resolve<Observable<Todo[]>> {
+export class TodosResolver implements Resolve<Observable<Consulta[]>> {
 
-  constructor(private todoDataService: TodoDataService) {
+  constructor(private consultaDataService: ConsultaDataService) {
   }
 
   public resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-    ): Observable<Todo[]> {
-    return this.todoDataService.getAllTodos();
+    ): Observable<Consulta[]> {
+    return this.consultaDataService.getAllConsultas();
   }
-}
+} 

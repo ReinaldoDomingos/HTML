@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output  } from '@angular/core';
-import { Todo } from '../todo';
+import {Consulta } from '../consulta';
 
 @Component({
 	selector: 'app-todo-list',
@@ -9,21 +9,22 @@ import { Todo } from '../todo';
 export class TodoListComponent {
 
 	@Input()
-	todos: Todo[];
+	consultas: Consulta[];
 
 	@Output()
-	remove: EventEmitter<Todo> = new EventEmitter();
+	remove: EventEmitter<Consulta> = new EventEmitter();
 
 	@Output()
-	toggleComplete: EventEmitter<Todo> = new EventEmitter();
+	toggleComplete: EventEmitter<Consulta> = new EventEmitter();
 
 	constructor() { }
 
-	onToggleTodoComplete(todo: Todo) {
-		this.toggleComplete.emit(todo);
+	onToggleConsultaComplete(consulta: Consulta) {
+		this.toggleComplete.emit(consulta);
 	}
 
-	onRemoveTodo(todo: Todo) {
-		this.remove.emit(todo);
+	onRemoveConsulta(consulta: Consulta) {
+		console.log(consulta.id)		
+		this.remove.emit(consulta);
 	}
 }
